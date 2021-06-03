@@ -7,9 +7,11 @@ import goodtime from "../img/goodtimes-small.png";
 //
 import { motion } from 'framer-motion';
 import { SliderContainer, pageAnimation, fade, photoAni, LineAni, Slider } from '../animation';
-
+import { useScroll } from '../components/UseSroll';
 
 function OurWork(props) {
+    const [element, control] = useScroll();
+    const [element2, control2] = useScroll();
     return (
         <Work
             variants={pageAnimation}
@@ -23,7 +25,7 @@ function OurWork(props) {
                 <Frame3 variants={Slider}></Frame3>
                 <Frame4 variants={Slider}></Frame4>
             </motion.div>
-            <Movie>
+            <Movie  >
                 <motion.h2 variants={fade}>The Athlete</motion.h2>
                 <motion.div variants={LineAni} className="line"></motion.div>
                 <Link to='/work/the-athlete'>
@@ -32,7 +34,7 @@ function OurWork(props) {
                     </Hide>
                 </Link>
             </Movie>
-            <Movie>
+            <Movie ref={element} variants={fade} animate={control} initial='hidden'>
                 <motion.h2 variants={fade}>The Racer</motion.h2>
                 <motion.div variants={LineAni} className="line"></motion.div>
                 <Link to='/work/the-racer'>
@@ -41,7 +43,7 @@ function OurWork(props) {
                     </Hide>
                 </Link>
             </Movie>
-            <Movie>
+            <Movie ref={element2} variants={fade} animate={control2} initial='hidden'>
                 <motion.h2 variants={fade}>Goodtime</motion.h2>
                 <motion.div variants={LineAni} className="line"></motion.div>
                 <Link to='/work/good-times'>
@@ -49,8 +51,8 @@ function OurWork(props) {
                         <motion.img variants={photoAni} src={goodtime} alt="" />
                     </Hide>
                 </Link>
-            </Movie>
-        </Work>
+            </Movie >
+        </Work >
     );
 }
 
@@ -61,10 +63,14 @@ const Work = styled(motion.div)`
     h2{
         padding: 1rem 0rem;
     }
+    @media (max-width:1300px){
+        padding:2rem;
+    }
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
     padding-bottom: 10rem;
+    overflow: hidden;
     .line{
         background: #23d997;
         height: 0.5rem;

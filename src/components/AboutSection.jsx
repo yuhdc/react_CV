@@ -18,7 +18,7 @@ function AboutSection(props) {
               variants={titleAni}
               animate='show'
               initial='hidden'
-            >Greetings,</motion.h2>
+            >Greetings.</motion.h2>
           </Hide>
           <Hide>
             <motion.h2
@@ -30,9 +30,8 @@ function AboutSection(props) {
               Huy <span>an</span> Dev
             </motion.h2>
           </Hide>
-          <motion.p variants={fade}>contact us for any photography or videography ideas that you have.
-            We have professional with amazing skill to let you achieve that.</motion.p>
-          <motion.button variants={fade}>contact us</motion.button>
+          <motion.p variants={fade}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, iste quam! Voluptate non repudiandae sequi esse error. Numquam, expedita incidunt?</motion.p>
+          <motion.button variants={fade}>contact me</motion.button>
         </motion.div>
       </Description>
       <Image>
